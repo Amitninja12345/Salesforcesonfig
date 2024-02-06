@@ -1,0 +1,32 @@
+# Connector Name
+
+name=sf-cloud-news-pe-source-connector
+
+# You can define more than 1 task handler for performance tuning/scaling
+tasks.max=1
+
+# Type of Connector
+connector.class=io.confluent.salesforce.SalesforcePlatformEventSourceConnector
+
+# Data converter class — using JSON
+key.converter=org.apache.kafka.connect.json.JsonConverter
+value.converter=org.apache.kafka.connect.json.JsonConverter
+
+# Salesforce Credentials
+salesforce.consumer.key=<SALESFORCE CONNECTED APP CONSUMER KEY>
+salesforce.consumer.secret=<SALESFORCE CONNECTED APP CONSUMER SECRET>
+salesforce.username=<SALESFORCE USERNAME>
+salesforce.password=<SALESFORCE PASSWORD>
+salesforce.password.token=<SALESFORCE SECURITY TOKEN>
+salesforce.instance=https://login.salesforce.com
+
+# Salesforce Platform Event Name
+salesforce.platform.event.name=MyPlatformEvent__e
+salesforce.initial.start=latest
+# Target Topic
+kafka.topic=sfdc-platform-events
+
+# License Setting — Default settings for trail/local version
+confluent.topic.replication.factor=1
+confluent.topic.bootstrap.servers=localhost:9092
+confluent.license=
